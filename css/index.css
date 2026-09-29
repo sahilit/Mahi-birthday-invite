@@ -141,7 +141,7 @@
   @keyframes wfade{from{opacity:0;transform:translateY(14px)}}
   
   /* finale */
-  .finale{min-height:74svh;display:grid;place-items:center;text-align:center;color:#fff;background:var(--deep);overflow:hidden}
+  .finale{min-height:78svh;display:grid;place-items:center;text-align:center;color:#fff;background:var(--deep);overflow:hidden}
   .finale .in{position:relative;z-index:3}
   .finale .names{font-family:var(--f-d);font-size:clamp(38px,9vw,74px);margin-top:16px}
   .finale .kick{color:rgba(255,255,255,.7)}

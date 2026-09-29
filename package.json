@@ -1,1 +1,1 @@
-{"name":"aarya-invite-clone","version":"1.0.0","private":true,"description":"A self-contained birthday invitation clone inspired by the Dil Se Invite Aarya demo.","scripts":{"dev":"python3 -m http.server 4173","start":"python3 -m http.server 4173"}}
+{"name":"mahi-invite","version":"1.0.0","private":true,"description":"A self-contained birthday invitation clone inspired by the Dil Se Invite Aarya demo.","scripts":{"dev":"python3 -m http.server 4173","start":"python3 -m http.server 4173"}}
