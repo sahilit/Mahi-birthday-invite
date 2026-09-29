@@ -1,88 +1,216 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aarya turns One! 🎈</title>
-  <meta name="description" content="A playful first birthday invitation for Aarya." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Local copy of the reference site's shared demo kit stylesheet. -->
-  <link rel="stylesheet" href="reference-kit.css" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahi turns One! 🎈</title>
+<meta name="description" content="Come celebrate Mahi&#x27;s first birthday on 22 November 2026 in Gurugram — the party plan, fun corners, venue and RSVP.">
+<meta property="og:title" content="Mahi turns One! 🎈">
+<meta property="og:description" content="Come celebrate Mahi&#x27;s first birthday on 22 November 2026 in Gurugram — the party plan, fun corners, venue and RSVP.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://dilseinvite.in/assets/img/demos/Mahi-turns-1.jpg">
+<link rel="canonical" href="https://dilseinvite.in/demo/Mahi-turns-1/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Dil Se Invite"><meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://dilseinvite.in/demo/Mahi-turns-1/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "@id": "https://dilseinvite.in/demo/Mahi-turns-1/#design", "name": "Balloon Party — birthday invitation website", "description": "Guests pop six glossy balloons to open the party. A giant rainbow age, twelve months of firsts, the party plan, fun corners and a wish-balloon wall where every guest's wish floats up.", "url": "https://dilseinvite.in/demo/Mahi-turns-1/", "image": "https://dilseinvite.in/assets/img/demos/Mahi-turns-1.jpg", "genre": "Kids birthday", "inLanguage": "en-IN", "keywords": "Opening: pop the balloons, Month-by-month firsts, Party plan, Wish balloons", "creator": {"@type": "Organization", "@id": "https://dilseinvite.in/#org", "name": "Dil Se Invite", "url": "https://dilseinvite.in/"}, "isPartOf": {"@type": "CollectionPage", "name": "Live invitation website demos", "url": "https://dilseinvite.in/demos"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dilseinvite.in/"}, {"@type": "ListItem", "position": 2, "name": "Live demos", "item": "https://dilseinvite.in/demos"}, {"@type": "ListItem", "position": 3, "name": "Balloon Party", "item": "https://dilseinvite.in/demo/Mahi-turns-1/"}]}]}</script>
+<meta name="theme-color" content="#FFF6EE">
+<link rel="icon" type="image/png" href="../../assets/brand/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/kit.css">
+<link rel="stylesheet" href="./css/index.css">
+<script src="./js/index.js"></script>
 </head>
-<body>
-  <div class="gate" id="gate" aria-labelledby="gateTitle">
-    <div class="gate-balloons" id="gateBalloons" aria-hidden="true"></div>
-    <div class="gate-card">
-      <p class="eyebrow">YOU'RE INVITED!</p>
-      <h1 id="gateTitle">Pop all the balloons<br />to open the party</h1>
-      <p>Tap every balloon to pop it</p>
-      <button class="text-button" id="skipGate">SKIP</button>
+<body class="locked">
+
+<div class="gate op" id="gate" role="dialog" aria-label="Birthday invitation">
+  <div class="op-scene" aria-hidden="true"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i></div>
+  <div class="op-ritual">
+    <div class="sky" id="popSky">
+      <button type="button" class="bal" style="--x:18%;--y:22%;--c:#F7A8BC;--d:0" aria-label="Pop balloon"></button>
+      <button type="button" class="bal" style="--x:62%;--y:14%;--c:#8EC5FF;--d:1" aria-label="Pop balloon"></button>
+      <button type="button" class="bal" style="--x:40%;--y:40%;--c:#FFD166;--d:2" aria-label="Pop balloon"></button>
+      <button type="button" class="bal" style="--x:76%;--y:44%;--c:#9FE3C6;--d:3" aria-label="Pop balloon"></button>
+      <button type="button" class="bal" style="--x:10%;--y:56%;--c:#C8B6FF;--d:4" aria-label="Pop balloon"></button>
+      <button type="button" class="bal" style="--x:52%;--y:66%;--c:#FFB38A;--d:5" aria-label="Pop balloon"></button>
     </div>
   </div>
+  <div class="op-top"><small data-t="gate.kicker"></small><p data-t="gate.line"></p></div>
+  <canvas class="op-fx" id="opFx" aria-hidden="true"></canvas>
+  <div class="op-hint" id="opHint" aria-live="polite"><i aria-hidden="true"></i><span data-t="gate.hint"></span><b class="op-prog" aria-hidden="true"><s></s></b></div>
+  <button class="op-skip" type="button" id="opSkip" data-t="gate.skip"></button>
 
-  <main id="party" class="party" aria-hidden="true">
-    <a class="demo-link" href="#top">← DIL SE INVITE · DEMO</a>
-    <header class="hero" id="top">
-      <div class="hero-balloons" aria-hidden="true">
-        <i class="balloon pink"></i><i class="balloon yellow"></i><i class="balloon blue"></i>
-        <i class="balloon purple"></i><i class="balloon green"></i><i class="balloon orange"></i>
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow">COME CELEBRATE</p>
-        <h2>Aarya</h2>
-        <p class="turning">is turning</p>
-        <div class="age">1</div>
-        <p class="date-line">SUNDAY · 22 NOVEMBER · 2026</p>
-      </div>
-      <div class="quick-actions" aria-label="Quick actions">
-        <a href="#rsvp">RSVP</a><a href="#events">Party</a><button id="musicButton">▮▮ Music</button><button id="shareButton">⌯</button>
-      </div>
-    </header>
+  <div class="op-done" aria-live="polite">
+    <div class="op-card">
+      <div class="op-mono op-agemono" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="57"/><circle cx="60" cy="60" r="50"/></svg><span class="op-age" data-age></span></div>
+      <small data-t="gate.kicker"></small>
+      <h1 data-names></h1>
+      <div class="date"><span data-ordinal></span> <span data-t="gate.after_age"></span> · <span data-t="basics.date_short"></span></div>
+      <button class="enter" id="enter" data-t="gate.button"></button>
+      <div class="op-sub" data-t="gate.done_hint"></div>
+    </div>
+  </div>
+  <div class="op-flash" aria-hidden="true"></div>
 
-    <section class="section year" id="first-year">
-      <p class="eyebrow">THE FIRST YEAR</p><h2>Twelve months <em>of firsts</em></h2>
-      <p class="lead">She arrived small and loud, and she's been getting bigger and louder ever since.</p>
-      <div class="month-grid" id="months"></div>
-    </section>
+</div>
 
-    <section class="section plan" id="plan">
-      <p class="eyebrow">THE PARTY PLAN</p><h2>A very <em>busy afternoon</em></h2>
-      <div class="plan-list" id="planList"></div>
-    </section>
+<main>
+  <section class="hero" id="top">
+    <div class="bunch l" aria-hidden="true"><i style="--c:#F7A8BC"></i><i style="--c:#FFD166"></i><i style="--c:#8EC5FF"></i></div>
+    <div class="bunch r" aria-hidden="true"><i style="--c:#9FE3C6"></i><i style="--c:#C8B6FF"></i><i style="--c:#FFB38A"></i></div>
+    <div class="in">
+      <small class="kick" data-t="hero.kicker"></small>
+      <div class="name" data-names></div>
+      <div class="turning" data-t="hero.turning"></div>
+      <div class="age" data-age></div>
+      <div class="when" data-t="basics.date_text"></div>
+      <div class="where" data-t="basics.city"></div>
+      <div class="host"><span data-t="hero.host_prefix"></span> <b data-t="basics.host"></b></div>
+    </div>
+    <div class="cue" data-t="hero.cue"></div>
+  </section>
 
-    <section class="section fun" id="fun">
-      <p class="eyebrow">FUN CORNERS</p><h2>Something for <em>everyone</em></h2>
-      <div class="corner-grid" id="cornerGrid"></div>
-    </section>
+  <section class="year-sec" id="year" data-section="year">
+    <div class="wrap">
+      <div class="kick center rv" data-t="year.kicker"></div>
+      <h2 class="title center rv"><span data-t="year.title"></span> <em data-t="year.title_em"></em></h2>
+      <p class="lead center rv" style="margin-top:14px" data-tb="year.lead"></p>
+      <div class="months" id="months"></div>
+    </div>
+  </section>
 
-    <section class="countdown section" id="countdown">
-      <p class="eyebrow">THE PARTY STARTS IN</p><h2>Until the cake</h2>
-      <button class="scratch-card" id="scratchButton"><span>Sunday · 22 November · 2026</span><strong>4 PM ONWARDS</strong><small>SCRATCH OFF THE CONFETTI</small></button>
-      <button class="text-button" id="revealButton">Can't scratch? Show me the date</button>
-      <div class="timer" id="timer" aria-live="polite"></div>
-    </section>
+  <section class="plan-sec" id="plan" data-section="plan">
+    <div class="wrap">
+      <div class="kick center rv" data-t="plan.kicker"></div>
+      <h2 class="title center rv"><span data-t="plan.title"></span> <em data-t="plan.title_em"></em></h2>
+      <ol class="plan" id="planList"></ol>
+    </div>
+  </section>
 
-    <section class="section events" id="events">
-      <p class="eyebrow">THE PARTY</p><h2>Where <em>&amp; when</em></h2>
-      <article class="event-card"><p class="eyebrow">SUN · 22 NOV · 4:00 PM</p><h3>Aarya's 1st Birthday Party</h3><p>Strollers welcome. There's a quiet room for naps and feeds.</p><p class="venue-name">The Little Garden Café<br /><small>Comfy &amp; colourful</small></p><a href="https://maps.google.com/?q=The%20Little%20Garden%20Caf%C3%A9%2C%20Gurugram" target="_blank" rel="noreferrer">Directions →</a><button class="outline-button" id="calendarButton">Add to calendar +</button></article>
-    </section>
+  <section class="count-sec" data-move="countdown">
+    <div class="wrap center">
+      <div class="kick center" data-t="countdown.kicker"></div>
+      <h2 class="title" data-t="countdown.title"></h2>
+      <div class="count" data-count><div><b>0</b><small>DAYS</small></div><div><b>00</b><small>HOURS</small></div><div><b>00</b><small>MINUTES</small></div><div><b>00</b><small>SECONDS</small></div></div>
+    </div>
+  </section>
 
-    <section class="section wishes" id="wishes">
-      <p class="eyebrow">WISH BALLOONS</p><h2>Send Aarya <em>a wish</em></h2>
-      <p class="lead">Write a wish for her first year and it floats up with the others.</p>
-      <form class="wish-form" id="wishForm"><input id="wishText" required placeholder="Your wish" /><input id="wishName" required placeholder="Your name" /><button>Float my wish</button></form>
-      <div class="wish-wall" id="wishWall"><div>May you always laugh this loudly.<small>Nani</small></div><div>More cake, fewer vaccinations.<small>Chachu</small></div><div>Be as brave as you are tiny.<small>Mama</small></div></div>
-    </section>
+  <section id="events" data-move="events">
+    <div class="wrap">
+      <div class="kick center rv" data-t="events_section.kicker"></div>
+      <h2 class="title center rv"><span data-t="events_section.title"></span> <em data-t="events_section.title_em"></em></h2>
+      <div class="orn rv"><i></i></div>
+      <div class="wevs" id="eventList"></div>
+    </div>
+  </section>
 
-    <section class="section venue" id="venue"><p class="eyebrow">LOCATION</p><h2>The Little <em>Garden Café</em></h2><p>The Little Garden Café · Golf Course Road, Gurugram</p><div class="map-placeholder" id="map">Tap to load the map</div><a class="map-link" href="https://maps.google.com/?q=Golf%20Course%20Road%2C%20Gurugram" target="_blank" rel="noreferrer">Get directions</a></section>
 
-    <section class="section rsvp" id="rsvp"><p class="eyebrow">RSVP</p><h2>Coming <em>to the party?</em></h2><p>Please let us know by 15 November</p><form id="rsvpForm"><label>Your name<input required name="name" /></label><div class="radio-row"><label><input type="radio" name="attendance" value="yes" checked /> Yay, we're coming!</label><label><input type="radio" name="attendance" value="no" /> Sorry, can't make it</label></div><label>How many of you<select name="guests"><option>Just me</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option></select></label><label>Phone (optional)<input name="phone" type="tel" /></label><label>Kids coming? Names &amp; ages (optional)<input name="kids" /></label><button>Send RSVP</button><p class="form-note" id="rsvpNote" aria-live="polite"></p></form></section>
+  <section class="wish-sec" id="wishes" data-section="wishes">
+    <div class="wrap">
+      <div class="kick center rv" data-t="wishes.kicker"></div>
+      <h2 class="title center rv"><span data-t="wishes.title"></span> <em data-t="wishes.title_em"></em></h2>
+      <p class="lead center rv" style="margin-top:14px" data-tb="wishes.lead"></p>
+      <form class="wish-form rv" id="wishForm">
+        <input id="wishText" maxlength="70" data-val="wishes.placeholder" aria-label="Your wish" required>
+        <input id="wishName" maxlength="24" data-val="wishes.name_placeholder" aria-label="Your name">
+        <button class="btn" type="submit" data-t="wishes.button"></button>
+      </form>
+      <div class="wishes" id="wishWall"></div>
+    </div>
+  </section>
 
-    <footer><p class="eyebrow">SEE YOU AT THE PARTY</p><h2>Aarya</h2><p>Bring your appetite for cake and your loudest “Happy Birthday”.</p><small>A live demo by <a href="https://dilseinvite.in" target="_blank" rel="noreferrer">Dil Se Invite</a> — the names are fictional, your website will be entirely yours.</small></footer>
-  </main>
-  <script src="script.js"></script>
+  <section id="venue" data-section="venue" data-move="venue">
+    <div class="wrap narrow">
+      <div class="kick center rv" data-t="venue.kicker"></div>
+      <h2 class="title center rv"><span data-t="venue.title"></span> <em data-t="venue.title_em"></em></h2>
+      <p class="center muted rv" style="margin-top:14px" data-t="venue.line"></p>
+      <div class="wmap rv" id="map"><button type="button" id="loadMap" data-t="venue.map_button"></button></div>
+      <div class="center rv" style="margin-top:18px"><a class="btn" id="dirBtn" target="_blank" rel="noopener" data-t="venue.directions_label"></a></div>
+    </div>
+  </section>
+
+  <section class="rsvp-sec" id="rsvp" data-section="rsvp" data-move="rsvp">
+    <div class="wrap narrow">
+      <div class="kick center rv" data-t="rsvp.kicker"></div>
+      <h2 class="title center rv"><span data-t="rsvp.title"></span> <em data-t="rsvp.title_em"></em></h2>
+      <p class="center muted rv" style="margin-top:12px" data-t="rsvp.deadline"></p>
+      <form class="wform rv" id="rsvpForm">
+        <label><span data-t="rsvp.name_label"></span><input name="n" required autocomplete="name" maxlength="60"></label>
+        <label hidden aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="choice"><label><input type="radio" name="a" value="yes" checked><span data-t="rsvp.yes_label"></span></label><label><input type="radio" name="a" value="no"><span data-t="rsvp.no_label"></span></label></div>
+        <label><span data-t="rsvp.guests_label"></span><select name="g" id="guestSel"></select></label>
+        <div id="fnWrap"><label data-t="rsvp.functions_label"></label><div class="fns" id="fns" style="margin-top:8px"></div></div>
+        <label><span data-t="rsvp.message_label"></span><input name="m" maxlength="200"></label>
+        <button class="btn" type="submit" data-t="rsvp.button"></button>
+        <p class="err" id="rsvpErr" style="color:#b3261e;font-size:13px;margin:0" hidden></p>
+      </form>
+      <div class="wthx" id="thanks"><h3 id="thxH"></h3><p id="thxP"></p><p style="margin-top:14px;font-size:12px" data-demo-only>Demo only — on your website every RSVP lands in your dashboard and on WhatsApp.</p></div>
+    </div>
+  </section>
+
+
+  <section class="finale">
+    <div class="in wrap">
+      <div class="kick center" data-t="finale.kicker"></div>
+      <div class="name" data-names></div>
+      <p class="fline" data-t="finale.line"></p>
+    </div>
+  </section>
+</main>
+
+<nav class="kit-dock" aria-label="Quick actions">
+  <a class="pri" href="#rsvp">RSVP</a>
+  <a href="#events" data-t="hero.dock_party"></a>
+  <button type="button" data-music aria-label="Play music"><span class="kit-eq"><i></i><i></i><i></i></span>Music</button>
+  <button type="button" data-share aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></button>
+</nav>
+<script src="./js/kit.js"></script>
+<script src="./js/open.js"></script>
+<script src="./js/wed.js"></script>
+<script>
+(function(){
+  var K=DSIKit, Wed=DSIWed, W=K.W, $=K.$, esc=K.esc;
+  var TINTS=["#FFE1EA","#E2F0FF","#FFF3C9","#DDF6EC","#EDE6FF","#FFE6D6"];
+  var BAL=["#F7A8BC","#8EC5FF","#FFD166","#9FE3C6","#C8B6FF","#FFB38A"];
+  Wed.page({ scratch:{ material:"confetti" },  music:"musicbox" });
+
+  K.list($("#months"),(W.year||{}).months,function(m,i){
+    return '<article class="mo rv" style="--t:'+TINTS[i%6]+'"><small>'+esc(m.month)+'</small><i>'+esc(m.icon)+'</i><b>'+esc(m.title)+'</b></article>';
+  });
+  K.list($("#planList"),(W.plan||{}).items,function(p,i){
+    return '<li class="rv" style="--c:'+BAL[i%6]+'"><i>'+esc(p.icon)+'</i><div><time>'+esc(p.time)+'</time><h3>'+esc(p.title)+'</h3><p>'+K.nl(p.text)+'</p></div></li>';
+  });
+  K.list($("#corners"),(W.fun||{}).items,function(c,i){
+    return '<article class="corner rv" style="--t:'+TINTS[i%6]+';--c:'+BAL[i%6]+'"><i>'+esc(c.icon)+'</i><h3>'+esc(c.title)+'</h3><p>'+K.nl(c.text)+'</p></article>';
+  });
+
+  var WS=W.wishes||{}, wall=$("#wishWall"), wn=0;
+  function wish(w,fresh){
+    var c=BAL[wn++%6];
+    return '<div class="wb'+(fresh?' new':'')+'" style="--c:'+c+';--r:'+((wn*29%11)-5)+'deg"><i class="b"></i><i class="s"></i><div class="tag"><span>'+esc(w.text)+'</span><em>'+esc(w.by||"")+'</em></div></div>';
+  }
+  wall.innerHTML=(WS.seed||[]).map(function(w){ return wish(w); }).join("");
+  $("#wishForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    var t=$("#wishText").value.trim(), n=$("#wishName").value.trim(); if(!t) return;
+    wall.insertAdjacentHTML("afterbegin",wish({text:t,by:n},true));
+    $("#wishText").value=""; K.sfx("chime"); K.toast(WS.added||"Your wish is floating!");
+  });
+
+  /* ==== opening ==== */
+  Wed.ritual(function(O){
+    var fx=O.fx($("#opFx"),{kind:"confetti",colors:BAL.concat(["#FFFFFF"]),rain:0,max:320,r:4.4,fall:.9});
+    O.taps(K.$$("#popSky .bal"),{delay:500,
+      onTap:function(i,el){
+        var c=O.center(el), col=getComputedStyle(el).getPropertyValue("--c").trim();
+        K.sfx("stamp"); fx.burst(34,c[0],c[1],{explode:true,speed:5,r:4,life:130,colors:[col,"#FFFFFF",col]});
+      },
+      onDone:function(){ fx.burst(160,innerWidth/2,innerHeight*.4,{explode:true,speed:8,r:4.5,life:220}); fx.rain(.25); K.sfx("chime"); O.complete(); }});
+  });
+  /* ==== /opening ==== */
+})();
+</script>
 </body>
 </html>
