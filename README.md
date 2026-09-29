@@ -20,3 +20,5 @@ The original page was inspected for its rendered structure and behavior. It uses
 - a balloon-opening gate, countdown, wish form, map action, RSVP form, music control, share control, and calendar download
 
 This repo intentionally keeps the implementation local and dependency-free; names and event details can be edited directly in `index.html` and `script.js`.
+
+`reference-kit.css` is a local copy of the shared stylesheet loaded by the reference page. The page-specific styling remains in `styles.css` so the clone can run offline and be customized safely.
