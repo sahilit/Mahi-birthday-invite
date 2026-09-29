@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarya turns One! 🎈</title>
+  <meta name="description" content="A playful first birthday invitation for Aarya." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="gate" id="gate" aria-labelledby="gateTitle">
+    <div class="gate-balloons" id="gateBalloons" aria-hidden="true"></div>
+    <div class="gate-card">
+      <p class="eyebrow">YOU'RE INVITED!</p>
+      <h1 id="gateTitle">Pop all the balloons<br />to open the party</h1>
+      <p>Tap every balloon to pop it</p>
+      <button class="text-button" id="skipGate">SKIP</button>
+    </div>
+  </div>
+
+  <main id="party" class="party" aria-hidden="true">
+    <a class="demo-link" href="#top">← DIL SE INVITE · DEMO</a>
+    <header class="hero" id="top">
+      <div class="hero-balloons" aria-hidden="true">
+        <i class="balloon pink"></i><i class="balloon yellow"></i><i class="balloon blue"></i>
+        <i class="balloon purple"></i><i class="balloon green"></i><i class="balloon orange"></i>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">COME CELEBRATE</p>
+        <h2>Aarya</h2>
+        <p class="turning">is turning</p>
+        <div class="age">1</div>
+        <p class="date-line">SUNDAY · 22 NOVEMBER · 2026</p>
+      </div>
+      <div class="quick-actions" aria-label="Quick actions">
+        <a href="#rsvp">RSVP</a><a href="#events">Party</a><button id="musicButton">▮▮ Music</button><button id="shareButton">⌯</button>
+      </div>
+    </header>
+
+    <section class="section year" id="first-year">
+      <p class="eyebrow">THE FIRST YEAR</p><h2>Twelve months <em>of firsts</em></h2>
+      <p class="lead">She arrived small and loud, and she's been getting bigger and louder ever since.</p>
+      <div class="month-grid" id="months"></div>
+    </section>
+
+    <section class="section plan" id="plan">
+      <p class="eyebrow">THE PARTY PLAN</p><h2>A very <em>busy afternoon</em></h2>
+      <div class="plan-list" id="planList"></div>
+    </section>
+
+    <section class="section fun" id="fun">
+      <p class="eyebrow">FUN CORNERS</p><h2>Something for <em>everyone</em></h2>
+      <div class="corner-grid" id="cornerGrid"></div>
+    </section>
+
+    <section class="countdown section" id="countdown">
+      <p class="eyebrow">THE PARTY STARTS IN</p><h2>Until the cake</h2>
+      <button class="scratch-card" id="scratchButton"><span>Sunday · 22 November · 2026</span><strong>4 PM ONWARDS</strong><small>SCRATCH OFF THE CONFETTI</small></button>
+      <button class="text-button" id="revealButton">Can't scratch? Show me the date</button>
+      <div class="timer" id="timer" aria-live="polite"></div>
+    </section>
+
+    <section class="section events" id="events">
+      <p class="eyebrow">THE PARTY</p><h2>Where <em>&amp; when</em></h2>
+      <article class="event-card"><p class="eyebrow">SUN · 22 NOV · 4:00 PM</p><h3>Aarya's 1st Birthday Party</h3><p>Strollers welcome. There's a quiet room for naps and feeds.</p><p class="venue-name">The Little Garden Café<br /><small>Comfy &amp; colourful</small></p><a href="https://maps.google.com/?q=The%20Little%20Garden%20Caf%C3%A9%2C%20Gurugram" target="_blank" rel="noreferrer">Directions →</a><button class="outline-button" id="calendarButton">Add to calendar +</button></article>
+    </section>
+
+    <section class="section wishes" id="wishes">
+      <p class="eyebrow">WISH BALLOONS</p><h2>Send Aarya <em>a wish</em></h2>
+      <p class="lead">Write a wish for her first year and it floats up with the others.</p>
+      <form class="wish-form" id="wishForm"><input id="wishText" required placeholder="Your wish" /><input id="wishName" required placeholder="Your name" /><button>Float my wish</button></form>
+      <div class="wish-wall" id="wishWall"><div>May you always laugh this loudly.<small>Nani</small></div><div>More cake, fewer vaccinations.<small>Chachu</small></div><div>Be as brave as you are tiny.<small>Mama</small></div></div>
+    </section>
+
+    <section class="section venue" id="venue"><p class="eyebrow">LOCATION</p><h2>The Little <em>Garden Café</em></h2><p>The Little Garden Café · Golf Course Road, Gurugram</p><div class="map-placeholder" id="map">Tap to load the map</div><a class="map-link" href="https://maps.google.com/?q=Golf%20Course%20Road%2C%20Gurugram" target="_blank" rel="noreferrer">Get directions</a></section>
+
+    <section class="section rsvp" id="rsvp"><p class="eyebrow">RSVP</p><h2>Coming <em>to the party?</em></h2><p>Please let us know by 15 November</p><form id="rsvpForm"><label>Your name<input required name="name" /></label><div class="radio-row"><label><input type="radio" name="attendance" value="yes" checked /> Yay, we're coming!</label><label><input type="radio" name="attendance" value="no" /> Sorry, can't make it</label></div><label>How many of you<select name="guests"><option>Just me</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option></select></label><label>Phone (optional)<input name="phone" type="tel" /></label><label>Kids coming? Names &amp; ages (optional)<input name="kids" /></label><button>Send RSVP</button><p class="form-note" id="rsvpNote" aria-live="polite"></p></form></section>
+
+    <footer><p class="eyebrow">SEE YOU AT THE PARTY</p><h2>Aarya</h2><p>Bring your appetite for cake and your loudest “Happy Birthday”.</p><small>A live demo by <a href="https://dilseinvite.in" target="_blank" rel="noreferrer">Dil Se Invite</a> — the names are fictional, your website will be entirely yours.</small></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
