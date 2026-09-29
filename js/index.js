@@ -210,7 +210,7 @@ window.WEDDING = {
 		"kicker": "RSVP",
 		"title": "Coming",
 		"title_em": "to the party?",
-		"deadline": "Please let us know by 04 November",
+		"deadline": "Please let us know by 04 October",
 		"whatsapp": "",
 		"wa_auto": false,
 		"wa_title": "RSVP for {names}'s {ordinal} birthday",
