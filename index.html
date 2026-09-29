@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#FFF6EE">
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/kit.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/index.js"></script>
@@ -28,12 +28,12 @@
       <div class="op-scene" aria-hidden="true"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i></div>
       <div class="op-ritual">
         <div class="sky" id="popSky">
-          <button type="button" class="bal" style="--x:18%;--y:22%;--c:#F7A8BC;--d:0" aria-label="Pop balloon"></button>
-          <button type="button" class="bal" style="--x:62%;--y:14%;--c:#8EC5FF;--d:1" aria-label="Pop balloon"></button>
-          <button type="button" class="bal" style="--x:40%;--y:40%;--c:#FFD166;--d:2" aria-label="Pop balloon"></button>
-          <button type="button" class="bal" style="--x:76%;--y:44%;--c:#9FE3C6;--d:3" aria-label="Pop balloon"></button>
-          <button type="button" class="bal" style="--x:10%;--y:56%;--c:#C8B6FF;--d:4" aria-label="Pop balloon"></button>
-          <button type="button" class="bal" style="--x:52%;--y:66%;--c:#FFB38A;--d:5" aria-label="Pop balloon"></button>
+          <button type="button" class="bal" style="--x:18%;--y:22%;--c:#F7A8BC;--d:0" data-aria="ui.pop_balloon" aria-label="Pop balloon"></button>
+          <button type="button" class="bal" style="--x:62%;--y:14%;--c:#8EC5FF;--d:1" data-aria="ui.pop_balloon" aria-label="Pop balloon"></button>
+          <button type="button" class="bal" style="--x:40%;--y:40%;--c:#FFD166;--d:2" data-aria="ui.pop_balloon" aria-label="Pop balloon"></button>
+          <button type="button" class="bal" style="--x:76%;--y:44%;--c:#9FE3C6;--d:3" data-aria="ui.pop_balloon" aria-label="Pop balloon"></button>
+          <button type="button" class="bal" style="--x:10%;--y:56%;--c:#C8B6FF;--d:4" data-aria="ui.pop_balloon" aria-label="Pop balloon"></button>
+          <button type="button" class="bal" style="--x:52%;--y:66%;--c:#FFB38A;--d:5" data-aria="ui.pop_balloon" aria-label="Pop balloon"></button>
         </div>
       </div>
       <div class="op-top"><small data-t="gate.kicker"></small><p data-t="gate.line"></p></div>
@@ -80,19 +80,19 @@
         </div>
       </section>
 
-      <section class="plan-sec" id="plan" data-section="plan">
+      <!-- <section class="plan-sec" id="plan" data-section="plan">
         <div class="wrap">
           <div class="kick center rv" data-t="plan.kicker"></div>
           <h2 class="title center rv"><span data-t="plan.title"></span> <em data-t="plan.title_em"></em></h2>
           <ol class="plan" id="planList"></ol>
         </div>
-      </section>
+      </section> -->
 
       <section class="count-sec" data-move="countdown">
         <div class="wrap center">
           <div class="kick center" data-t="countdown.kicker"></div>
           <h2 class="title" data-t="countdown.title"></h2>
-          <div class="count" data-count><div><b>0</b><small>DAYS</small></div><div><b>00</b><small>HOURS</small></div><div><b>00</b><small>MINUTES</small></div><div><b>00</b><small>SECONDS</small></div></div>
+          <div class="count" data-count><div><b>0</b><small data-t="ui.days">DAYS</small></div><div><b>00</b><small data-t="ui.hours">HOURS</small></div><div><b>00</b><small data-t="ui.minutes">MINUTES</small></div><div><b>00</b><small data-t="ui.seconds">SECONDS</small></div></div>
         </div>
       </section>
 
@@ -112,8 +112,8 @@
           <h2 class="title center rv"><span data-t="wishes.title"></span> <em data-t="wishes.title_em"></em></h2>
           <p class="lead center rv" style="margin-top:14px" data-tb="wishes.lead"></p>
           <form class="wish-form rv" id="wishForm">
-            <input id="wishText" maxlength="70" data-val="wishes.placeholder" aria-label="Your wish" required>
-            <input id="wishName" maxlength="24" data-val="wishes.name_placeholder" aria-label="Your name">
+            <input id="wishText" maxlength="70" data-val="wishes.placeholder" data-aria="ui.wish_aria" aria-label="Your wish" required>
+            <input id="wishName" maxlength="24" data-val="wishes.name_placeholder" data-aria="ui.wish_name_aria" aria-label="Your name">
             <button class="btn" type="submit" data-t="wishes.button"></button>
           </form>
           <div class="wishes" id="wishWall"></div>
@@ -130,7 +130,7 @@
         </div>
       </section>
 
-      <section class="rsvp-sec" id="rsvp" data-section="rsvp" data-move="rsvp">
+      <!-- <section class="rsvp-sec" id="rsvp" data-section="rsvp" data-move="rsvp">
         <div class="wrap narrow">
           <div class="kick center rv" data-t="rsvp.kicker"></div>
           <h2 class="title center rv"><span data-t="rsvp.title"></span> <em data-t="rsvp.title_em"></em></h2>
@@ -147,8 +147,7 @@
           </form>
           <div class="wthx" id="thanks"><h3 id="thxH"></h3><p id="thxP"></p><p style="margin-top:14px;font-size:12px" data-demo-only>Demo only — on your website every RSVP lands in your dashboard and on WhatsApp.</p></div>
         </div>
-      </section>
-
+      </section> -->
 
       <section class="finale">
         <div class="in wrap">
@@ -160,10 +159,10 @@
     </main>
 
     <nav class="kit-dock" aria-label="Quick actions">
-      <a class="pri" href="#rsvp">RSVP</a>
+      <a class="pri" href="#rsvp" data-t="ui.rsvp_dock">RSVP</a>
       <a href="#events" data-t="hero.dock_party"></a>
-      <button type="button" data-music aria-label="Play music"><span class="kit-eq"><i></i><i></i><i></i></span>Music</button>
-      <button type="button" data-share aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></button>
+      <button type="button" data-music data-aria="ui.music_aria" aria-label="Play music"><span class="kit-eq"><i></i><i></i><i></i></span><span data-t="ui.music">Music</span></button>
+      <button type="button" data-share data-aria="ui.share_aria" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></button>
     </nav>
     <script src="./js/kit.js"></script>
     <script src="./js/open.js"></script>

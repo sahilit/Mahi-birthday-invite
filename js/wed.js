@@ -15,8 +15,8 @@
       '<header><h3>' + esc(e.name) + '</h3><div class="when">' + esc(e.day) + (e.time ? '<span>' + esc(e.time) + '</span>' : '') + '</div></header>' +
       (e.note ? '<p>' + K.nl(e.note) + '</p>' : '') +
       '<div class="meta">' + (e.venue ? '<span>' + esc(e.venue) + '</span>' : '') + (e.dress ? '<span>' + esc(e.dress) + '</span>' : '') + '</div>' +
-      '<div class="acts"><a href="' + esc(K.mapLink(e)) + '" target="_blank" rel="noopener">Directions →</a>' +
-      (e.start ? '<button type="button" data-ics="' + i + '">Add to calendar +</button>' : '') + '</div></article>';
+      '<div class="acts"><a href="' + esc(K.mapLink(e)) + '" target="_blank" rel="noopener">' + esc((W.ui && W.ui.directions) || "Directions →") + '</a>' +
+      (e.start ? '<button type="button" data-ics="' + i + '">' + esc((W.ui && W.ui.calendar) || "Add to calendar +") + '</button>' : '') + '</div></article>';
   };
 
   Wed.events = function (el, render) {
@@ -270,14 +270,15 @@
 
     /* the date, written out without touching the time zone */
     var raw = String(B.date || ""), d = new Date(raw.slice(0, 16) || Date.now());
-    var day = isNaN(d) ? "" : d.toLocaleDateString("en-IN", { weekday: "long" });
-    var when = B.date_text || (isNaN(d) ? "" : d.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }));
+    var loc = K.lang === "hi" ? "hi-IN" : "en-IN";
+    var day = isNaN(d) ? "" : d.toLocaleDateString(loc, { weekday: "long" });
+    var when = B.date_text || (isNaN(d) ? "" : d.toLocaleDateString(loc, { day: "numeric", month: "long", year: "numeric" }));
     /* some designs already write the weekday into the date line — don't say it twice */
     if (day && when.toLowerCase().indexOf(day.toLowerCase()) >= 0) day = "";
     var hm = raw.slice(11, 16), time = "";
     if (/^\d\d:\d\d$/.test(hm)) {
       var H = +hm.slice(0, 2), M = hm.slice(3);
-      time = ((H % 12) || 12) + (M === "00" ? "" : ":" + M) + (H < 12 ? " AM" : " PM") + " onwards";
+      time = ((H % 12) || 12) + (M === "00" ? "" : ":" + M) + (H < 12 ? " AM" : " PM") + ((W.ui && W.ui.onwards) || " onwards");
     }
 
     /* "scratch_only": keep the date off the rest of the page too, so the card is the reveal */
@@ -294,7 +295,7 @@
     var wrap = document.createElement("div");
     wrap.className = "sd";
     wrap.innerHTML =
-      '<div class="sd-card" role="button" tabindex="0" aria-label="Scratch to reveal the wedding date">' +
+      '<div class="sd-card" role="button" tabindex="0" aria-label="' + esc(C.scratch_label || o.label || "Scratch to reveal the date") + '">' +
         '<div class="sd-under">' +
           (day ? '<div class="sd-day">' + esc(day) + '</div>' : '') +
           '<div class="sd-date">' + esc(when) + '</div>' +

@@ -3,6 +3,7 @@
   "use strict";
   var params = new URLSearchParams(location.search);
   var K = window.DSIKit = {
+    lang: window.DSI_LANG || ((params.get("lang") || "").toLowerCase() === "hi" ? "hi" : "en"),
     embed: params.get("embed") === "1",
     skip: params.get("skip") === "1",
     reduce: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -30,6 +31,7 @@
     K.$$("[data-src]", root).forEach(function (el) { var v = K.get(el.dataset.src); if (v) el.src = K.asset(v); });
     K.$$("[data-bg]", root).forEach(function (el) { var v = K.get(el.dataset.bg); if (v) el.style.backgroundImage = "url('" + K.asset(v) + "')"; });
     K.$$("[data-val]", root).forEach(function (el) { var v = K.get(el.dataset.val); if (v != null) el.setAttribute(el.dataset.attr || "placeholder", v); });
+    K.$$("[data-aria]", root).forEach(function (el) { var v = K.get(el.dataset.aria); if (v) el.setAttribute("aria-label", v); });
     K.$$("[data-if]", root).forEach(function (el) { var v = K.get(el.dataset.if); el.hidden = !(Array.isArray(v) ? v.length : v); });
     K.$$("[data-demo-only]", root).forEach(function (el) { el.hidden = !K.MODE.demo; });
     K.$$("[data-live-only]", root).forEach(function (el) { el.hidden = !!K.MODE.demo; });
@@ -171,6 +173,10 @@
   };
   K.ordinal = function (n) {
     n = parseInt(n, 10); if (isNaN(n)) return "";
+    if (K.lang === "hi") {
+      var hi = { 1: "पहला", 2: "दूसरा", 3: "तीसरा", 4: "चौथा" };
+      return hi[n] || (n + "वाँ");
+    }
     var s = ["th", "st", "nd", "rd"], v = n % 100;
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
   };
@@ -272,9 +278,10 @@
 
   /* share */
   K.share = function (title) {
-    var url = location.origin + location.pathname;
+    var url = location.origin + location.pathname + location.search;
+    var copied = (K.W.ui && K.W.ui.link_copied) || "Link copied";
     if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); }
-    else if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { K.toast("Link copied"); }, function () { K.toast(url); }); }
+    else if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { K.toast(copied); }, function () { K.toast(url); }); }
     else K.toast(url);
   };
 

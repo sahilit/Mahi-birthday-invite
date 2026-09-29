@@ -358,3 +358,21 @@
   .gate.op .op-card h1{font-family:var(--f-d);font-weight:700;color:#3B2A4A}
   .gate.op .op-card .date{color:#3B2A4A;opacity:.7;letter-spacing:.14em}
   .gate.op .enter{background:#E8618C;font-family:var(--f-d);font-size:16px;letter-spacing:.06em}
+
+  html[lang="hi"]{
+    --f-d:"Noto Sans Devanagari",Fredoka,system-ui,sans-serif;
+    --f-b:"Noto Sans Devanagari",Nunito,system-ui,sans-serif;
+    --f-s:"Noto Sans Devanagari",Fredoka,sans-serif;
+  }
+  html[lang="hi"] .kick,
+  html[lang="hi"] .op-top small,
+  html[lang="hi"] .gate small,
+  html[lang="hi"] .hero .when,
+  html[lang="hi"] .wev .when,
+  html[lang="hi"] .count small,
+  html[lang="hi"] .gate .enter,
+  html[lang="hi"] .op-skip,
+  html[lang="hi"] .mo small{
+    text-transform:none;
+    letter-spacing:0;
+  }
