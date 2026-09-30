@@ -187,7 +187,7 @@
         function photosFor(m,idx){
           var raw=(m.photos||[]).slice();
           while(raw.length<12){
-            raw.push("./images/months/"+(idx+1)+"/"+(raw.length+1)+".JPG");
+            raw.push("./images/months/"+(idx+1)+"/"+(raw.length+1)+".jpeg");
           }
           return raw.slice(0,12).map(function(p,n){
             var src=typeof p==="string"?p:(p&&p.image)||FALLBACK_PHOTO;
