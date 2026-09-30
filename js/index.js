@@ -60,12 +60,12 @@ window.WEDDING = {
 		{
 			"month": "Month 4",
 			"icon": "😂",
-			"title": "First giggle"
+			"title": "First giggle in Pune"
 		},
 		{
 			"month": "Month 5",
 			"icon": "🔄",
-			"title": "Rolled over"
+			"title": "Rolled over in Gujrat"
 		},
 		{
 			"month": "Month 6",
@@ -75,32 +75,32 @@ window.WEDDING = {
 		{
 			"month": "Month 7",
 			"icon": "🦷",
-			"title": "First tooth"
+			"title": "First tooth in Mahabaleshwar"
 		},
 		{
 			"month": "Month 8",
 			"icon": "🪑",
-			"title": "Sat up tall"
+			"title": "Sat up tall at Kolhapur"
 		},
 		{
 			"month": "Month 9",
 			"icon": "🗣️",
-			"title": "Said “Papa”"
+			"title": "Said “Papa” in Goa"
 		},
 		{
 			"month": "Month 10",
 			"icon": "🐢",
-			"title": "Crawling"
+			"title": "Crawling & Mundan"
 		},
 		{
 			"month": "Month 11",
 			"icon": "👋",
-			"title": "Bye-bye wave"
+			"title": "Bye-bye wave & Malshej ghat"
 		},
 		{
 			"month": "Month 12",
 			"icon": "👣",
-			"title": "First steps"
+			"title": "First steps with Ganapati bappa"
 		} ]
 	},
 	"plan":
