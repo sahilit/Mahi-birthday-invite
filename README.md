@@ -15,7 +15,17 @@ Live site: [https://sahilit.github.io/Mahi-birthday-invite/](https://sahilit.git
 
 Copy, dates, venue, and RSVP wording all live in `js/index.js` as `window.WEDDING`. Layout and page-specific styles are in `index.html` and `css/index.css`. Shared invite behaviour (countdown, map, calendar download, RSVP, music, share) is in `js/kit.js`, `js/wed.js`, and `js/open.js`.
 
-RSVP is local/demo unless you set `rsvp.whatsapp` in `js/index.js` (digits only). Wishes stay in the browser for that visit.
+RSVP is local/demo unless you set `rsvp.whatsapp` in `js/index.js` (digits only). Wishes are shown immediately in the browser and can be collected in the linked Google Sheet using the Apps Script endpoint described below.
+
+## Collect wishes in Google Sheets
+
+1. Open the linked spreadsheet and choose **Extensions → Apps Script**.
+2. Copy the contents of [`google-apps-script/Code.gs`](google-apps-script/Code.gs) into the Apps Script editor and save it.
+3. Choose **Deploy → New deployment**, select **Web app**, set **Execute as** to **Me**, and set access to **Anyone**. Authorize the script and copy the deployed web-app URL.
+4. Paste that URL into `WISH_SHEET_ENDPOINT` near the `wishForm` handler in [`index.html`](index.html).
+5. Publish the updated site. New wishes will be appended to the first tab with timestamp, wish, name, and source columns.
+
+The empty endpoint intentionally leaves local previews working without submitting data.
 
 ## Run locally
 

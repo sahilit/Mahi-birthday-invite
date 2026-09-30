@@ -254,6 +254,9 @@
         });
 
         var WS=W.wishes||{}, wall=$("#wishWall"), wn=0;
+        // Deploy google-apps-script/Code.gs as a web app and paste its URL here.
+        // The empty value keeps local previews working without a network request.
+        var WISH_SHEET_ENDPOINT="https://script.google.com/macros/s/AKfycbyDMT2NAdIf48ItGTHS0MLYDw6MLGajzTgjTLXB4djfPhptVzhUSTyxy6g4zfMyNV0/exec";
         function wish(w,fresh){
           var c=BAL[wn++%6];
           return '<div class="wb'+(fresh?' new':'')+'" style="--c:'+c+';--r:'+((wn*29%11)-5)+'deg"><i class="b"></i><i class="s"></i><div class="tag"><span>'+esc(w.text)+'</span><em>'+esc(w.by||"")+'</em></div></div>';
@@ -263,7 +266,18 @@
           e.preventDefault();
           var t=$("#wishText").value.trim(), n=$("#wishName").value.trim(); if(!t) return;
           wall.insertAdjacentHTML("afterbegin",wish({text:t,by:n},true));
-          $("#wishText").value=""; K.sfx("chime"); K.toast(WS.added||"Your wish is floating!");
+          $("#wishText").value="";
+          if(WISH_SHEET_ENDPOINT){
+            // Apps Script web apps accept form-encoded POSTs without requiring
+            // the browser to read the cross-origin response.
+            fetch(WISH_SHEET_ENDPOINT,{
+              method:"POST",
+              mode:"no-cors",
+              headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
+              body:new URLSearchParams({wish:t,name:n,source:location.href})
+            }).catch(function(err){ console.warn("Wish sheet submission failed",err); });
+          }
+          K.sfx("chime"); K.toast(WS.added||"Your wish is floating!");
         });
 
         /* ==== opening ==== */
