@@ -272,7 +272,7 @@
   /* first year */
   .year-sec{background:var(--bg)}
   .months{display:grid;gap:12px;margin-top:40px;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr))}
-  @media (max-width:520px){.months{grid-template-columns:repeat(3,1fr);gap:9px}}
+  @media (max-width:520px){.months{grid-template-columns:repeat(2,1fr);gap:9px}}
   .mo{padding:16px 10px 14px;border-radius:20px;background:var(--t);text-align:center;border:0;width:100%;font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .25s ease,box-shadow .25s ease}
   .mo:hover,.mo:focus-visible{transform:translateY(-3px);box-shadow:0 16px 28px -18px rgba(59,42,74,.55)}
   .mo:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
