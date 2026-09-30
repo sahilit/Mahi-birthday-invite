@@ -80,6 +80,15 @@
         </div>
       </section>
 
+      <div class="mo-modal" id="monthModal" role="dialog" aria-modal="true" aria-labelledby="monthModalTitle" hidden>
+        <div class="mo-sheet">
+          <button type="button" class="mo-x" id="monthModalClose" aria-label="Close gallery">×</button>
+          <small class="kick" id="monthModalKicker"></small>
+          <h2 class="title" id="monthModalTitle"></h2>
+          <div class="mo-gal kg" id="monthGal" data-gal></div>
+        </div>
+      </div>
+
       <!-- <section class="plan-sec" id="plan" data-section="plan">
         <div class="wrap">
           <div class="kick center rv" data-t="plan.kicker"></div>
@@ -96,14 +105,14 @@
         </div>
       </section>
 
-      <section id="events" data-move="events">
+      <!-- <section id="events" data-move="events">
         <div class="wrap">
           <div class="kick center rv" data-t="events_section.kicker"></div>
           <h2 class="title center rv"><span data-t="events_section.title"></span> <em data-t="events_section.title_em"></em></h2>
           <div class="orn rv"><i></i></div>
           <div class="wevs" id="eventList"></div>
         </div>
-      </section>
+      </section> -->
 
 
       <section class="wish-sec" id="wishes" data-section="wishes">
@@ -174,9 +183,69 @@
         var BAL=["#F7A8BC","#8EC5FF","#FFD166","#9FE3C6","#C8B6FF","#FFB38A"];
         Wed.page({ scratch:{ material:"confetti" },  music:"musicbox" });
 
+        var FALLBACK_PHOTO="./images/Mahi-turns-1.jpeg";
+        function photosFor(m,idx){
+          var raw=(m.photos||[]).slice();
+          while(raw.length<12){
+            raw.push("./images/months/"+(idx+1)+"/"+(raw.length+1)+".jpg");
+          }
+          return raw.slice(0,12).map(function(p,n){
+            var src=typeof p==="string"?p:(p&&p.image)||FALLBACK_PHOTO;
+            var cap=(p&&typeof p==="object"&&p.caption)||(m.title+" · "+(n+1));
+            return {image:src,caption:cap};
+          });
+        }
         K.list($("#months"),(W.year||{}).months,function(m,i){
-          return '<article class="mo rv" style="--t:'+TINTS[i%6]+'"><small>'+esc(m.month)+'</small><i>'+esc(m.icon)+'</i><b>'+esc(m.title)+'</b></article>';
+          return '<button type="button" class="mo rv" data-mo="'+i+'" style="--t:'+TINTS[i%6]+'" aria-label="'+esc(m.month+": "+m.title)+'"><small>'+esc(m.month)+'</small><i>'+esc(m.icon)+'</i><b>'+esc(m.title)+'</b></button>';
         });
+        (function(){
+          var modal=$("#monthModal"), gal=$("#monthGal"), closer=$("#monthModalClose");
+          var lastBtn=null, lastOverflow="", items=[];
+          function closeMonth(){
+            if(!modal.classList.contains("on")) return;
+            modal.classList.remove("on");
+            document.documentElement.style.overflow=lastOverflow;
+            setTimeout(function(){ modal.hidden=true; gal.innerHTML=""; },220);
+            if(lastBtn) lastBtn.focus();
+          }
+          function openMonth(idx,btn){
+            var months=(W.year||{}).months||[];
+            var m=months[idx]; if(!m) return;
+            lastBtn=btn||null;
+            items=photosFor(m,idx);
+            $("#monthModalKicker").textContent=m.month||"";
+            $("#monthModalTitle").textContent=m.title||"";
+            gal.innerHTML=items.map(function(g,i){
+              return '<button type="button" class="kg-i" data-kg="'+i+'" aria-label="'+esc(g.caption||("Photo "+(i+1)))+'">'+
+                '<img src="'+esc(g.image)+'" alt="'+esc(g.caption||"")+'" loading="lazy" decoding="async"></button>';
+            }).join("");
+            K.$$("img",gal).forEach(function(im,i){
+              im.addEventListener("error",function(){
+                if(im.dataset.fb) return;
+                im.dataset.fb="1";
+                items[i].image=FALLBACK_PHOTO;
+                im.src=FALLBACK_PHOTO;
+              });
+            });
+            lastOverflow=document.documentElement.style.overflow;
+            document.documentElement.style.overflow="hidden";
+            modal.hidden=false;
+            requestAnimationFrame(function(){ modal.classList.add("on"); closer.focus(); });
+          }
+          $("#months").addEventListener("click",function(e){
+            var btn=e.target.closest("[data-mo]");
+            if(btn) openMonth(+btn.dataset.mo,btn);
+          });
+          gal.addEventListener("click",function(e){
+            var b=e.target.closest("[data-kg]");
+            if(b) K.lightbox(items,+b.dataset.kg);
+          });
+          closer.addEventListener("click",closeMonth);
+          modal.addEventListener("click",function(e){ if(e.target===modal) closeMonth(); });
+          document.addEventListener("keydown",function(e){
+            if(e.key==="Escape" && modal.classList.contains("on") && !document.querySelector(".kg-lb")) closeMonth();
+          });
+        })();
         K.list($("#planList"),(W.plan||{}).items,function(p,i){
           return '<li class="rv" style="--c:'+BAL[i%6]+'"><i>'+esc(p.icon)+'</i><div><time>'+esc(p.time)+'</time><h3>'+esc(p.title)+'</h3><p>'+K.nl(p.text)+'</p></div></li>';
         });

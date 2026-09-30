@@ -83,7 +83,7 @@ window.WEDDING = {
 			"title": "Sat up tall"
 		},
 		{
-			"month": "Month 10",
+			"month": "Month 9",
 			"icon": "🗣️",
 			"title": "Said “Papa”"
 		},

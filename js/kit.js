@@ -21,7 +21,7 @@
   K.nl = function (s) { return K.esc(s).replace(/\n/g, "<br>"); };
   K.asset = function (p) {
     if (!p) return "";
-    if (/^(https?:|data:|blob:|\/)/.test(p)) return p;
+    if (/^(https?:|data:|blob:|\/|\.\/|\.\.\/)/.test(p)) return p;
     return (K.MODE.base || "../../") + "assets/img/" + p.replace(/^assets\/img\//, "");
   };
   K.bind = function (root) {
@@ -158,6 +158,17 @@
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(i + (dx < 0 ? 1 : -1));
       else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close();
     });
+    var wheelLock = 0;
+    box.addEventListener("wheel", function (e) {
+      e.preventDefault();
+      if (items.length < 2) return;
+      var now = Date.now();
+      if (now - wheelLock < 280) return;
+      var d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (Math.abs(d) < 12) return;
+      wheelLock = now;
+      show(i + (d > 0 ? 1 : -1));
+    }, { passive: false });
     document.addEventListener("keydown", key);
     if (items.length < 2) { K.$(".kg-p", box).hidden = true; K.$(".kg-n", box).hidden = true; }
     show(i);
